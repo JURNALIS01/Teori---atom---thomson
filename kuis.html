@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kuis Teori Atom Thomson</title>
+<style>
+/* ====== Base & Background ====== */
+body{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin:0; padding:0; color:#fff;
+  background: linear-gradient(-45deg,#4a90e2,#50e3c2,#9013fe,#f5a623);
+  background-size:400% 400%;
+  animation:gradientBG 15s ease infinite;
+}
+@keyframes gradientBG{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+header{ text-align:center; padding:30px 20px;}
+header h1{ font-size:2.2em; text-shadow:2px 2px 5px rgba(0,0,0,.3); margin:0;}
+.container{ display:flex; max-width:1200px; margin:40px auto; padding:20px; gap:30px; align-items:flex-start; flex-wrap:wrap; }
+
+/* ====== Menu kiri ====== */
+.menu{
+  flex:1; min-width:220px;
+  background:rgba(255,255,255,.1);
+  border-radius:20px; backdrop-filter:blur(10px);
+  padding:20px; box-shadow:0 8px 20px rgba(0,0,0,.3); text-align:left;
+}
+.menu h2{ margin:0 0 12px; font-size:1.3em;}
+.menu ul{ list-style:none; padding:0; margin:0;}
+.menu li{ margin:12px 0;}
+.menu a{
+  color:#fff; text-decoration:none; font-weight:600; padding:0 6px;
+  display:inline-block; border-bottom:2px solid rgba(255,255,255,.3); transition:.25s;
+}
+.menu a:hover{ color:#ffd700; border-bottom:2px solid #ffd700;}
+.menu a.active{ color:#ffd700; border-bottom:3px solid #ffd700;}
+
+/* ====== Konten kanan / Kuis ====== */
+.content-right{ flex:3; min-width:320px; display:flex; flex-direction:column; gap:20px;}
+.photo{ width:100%; display:flex; justify-content:center;}
+.photo img{
+  width:100%; max-width:600px; border-radius:20px; object-fit:cover;
+  box-shadow:0 15px 30px rgba(0,0,0,.3);
+}
+.quiz-card{
+  background:rgba(0,0,0,.45);
+  border-radius:16px; padding:20px;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+.quiz-header{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;}
+.quiz-title{ font-size:1.3em; margin:0;}
+.progress{ font-size:.95em; opacity:.9;}
+.q-box{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+  border-radius:12px; padding:16px; margin:14px 0;}
+.q-text{ margin:0 0 10px; font-weight:600;}
+.options{ display:grid; gap:10px;}
+.option{
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
+  border-radius:10px; padding:10px 12px; cursor:pointer; user-select:none;
+}
+.option input{ margin-right:8px; transform:translateY(1px);}
+.option:hover{ background:rgba(255,255,255,.12);}
+.feedback{ margin-top:10px; font-size:.95em; display:none;}
+.feedback.ok{ color:#b6ff9e;}
+.feedback.no{ color:#ffb3b3;}
+.btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;}
+button{
+  border:0; border-radius:999px; padding:10px 16px; cursor:pointer;
+  box-shadow:0 6px 16px rgba(0,0,0,.25); font-weight:700;
+}
+.btn-check{ background:#ffd700; color:#000;}
+.btn-reset{ background:#ffffff; color:#000;}
+.score{
+  margin-top:6px; font-weight:700;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
+  padding:10px 12px; border-radius:10px; display:none;
+}
+
+/* ====== Footer ====== */
+footer{ text-align:center; padding:20px; background:rgba(0,0,0,.5); margin-top:30px; font-size:.95em;}
+
+/* ====== Responsif ====== */
+@media (max-width:1024px){
+  .photo img{ max-height:300px;}
+}
+@media (max-width:480px){
+  .container{ flex-direction:column;}
+  header h1{ font-size:1.6em;}
+  .menu h2{ font-size:1.1em;}
+  .photo img{ max-height:200px;}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Kuis Teori Atom Thomson</h1>
+</header>
+
+<div class="container">
+  <!-- Menu kiri -->
+  <nav class="menu">
+    <h2>Materi</h2>
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="penemu.html">Penemu</a></li>
+      <li><a href="sejarah.html">Sejarah</a></li>
+      <li><a href="pengertian.html">Pengertian</a></li>
+      <li><a href="kelebihan.html">Kelebihan</a></li>
+      <li><a href="kekurangan.html">Kekurangan</a></li>
+      <li><a href="eksperimen.html">Eksperimen</a></li>
+      <li><a href="kesimpulan.html">Kesimpulan</a></li>
+      <li><a href="kuis.html" class="active">Kuis</a></li>
+    </ul>
+  </nav>
+
+  <!-- Konten kanan -->
+  <section class="content-right">
+    <!-- Opsional gambar header kuis -->
+    <div class="photo">
+      <img src="atom.jpg" alt="Kuis Teori Atom Thomson"/>
+    </div>
+
+    <div class="quiz-card" id="quiz">
+      <div class="quiz-header">
+        <h2 class="quiz-title">Uji Pemahaman: Model Atom Thomson</h2>
+        <div class="progress" id="progressInfo">0/0 terjawab</div>
+      </div>
+
+      <!-- Daftar soal akan dirender ke sini -->
+      <div id="questionList"></div>
+
+      <div class="btns">
+        <button class="btn-check" id="checkBtn">Periksa Jawaban</button>
+        <button class="btn-reset" id="resetBtn">Ulangi</button>
+      </div>
+
+      <div class="score" id="scoreBox">Skor: 0/0</div>
+    </div>
+  </section>
+</div>
+
+<footer>© 2025 Presentasi Teori Atom</footer>
+
+<script>
+/* ==== Data Soal ====
+   Tambah/ubah soal dengan pola:
+   { q: "teks soal", options: ["A","B","C","D"], answer: indeksBenar (0-3), explain: "alasan/penjelasan" }
+*/
+const QUESTIONS = [
+  {
+    q: "Model atom Thomson digambarkan sebagai...",
+    options: [
+      "Atom dengan inti padat bermuatan positif di pusatnya",
+      "Bola bermuatan positif dengan elektron tersebar di dalamnya",
+      "Elektron mengorbit inti pada lintasan tertentu",
+      "Gelombang probabilitas tanpa lintasan pasti"
+    ],
+    answer: 1,
+    explain: "Model 'plum pudding': muatan positif menyebar seperti puding, elektron seperti kismis."
+  },
+  {
+    q: "Penemuan yang mendukung model Thomson adalah...",
+    options: [
+      "Hamburan partikel alfa oleh foil emas",
+      "Spektrum garis atom hidrogen",
+      "Sinar katoda (elektron) pada tabung vakum",
+      "Dualisme gelombang-partikel elektron"
+    ],
+    answer: 2,
+    explain: "Eksperimen sinar katoda menunjukkan adanya partikel bermuatan negatif (elektron)."
+  },
+  {
+    q: "Kelemahan utama model Thomson:",
+    options: [
+      "Tidak dapat menjelaskan inti atom dan hamburan alfa",
+      "Tidak menjelaskan keberadaan elektron",
+      "Tidak memprediksi muatan positif",
+      "Tidak kompatibel dengan mekanika kuantum modern"
+    ],
+    answer: 0,
+    explain: "Rutherford menunjukkan inti kecil padat; ini bertentangan dengan muatan positif tersebar."
+  },
+  {
+    q: "Istilah yang sering dipakai untuk menyebut model Thomson:",
+    options: [
+      "Model tata surya",
+      "Model puding kismis (plum pudding)",
+      "Model awan elektron",
+      "Model cincin Saturnus"
+    ],
+    answer: 1,
+    explain: "Disebut 'plum pudding model'."
+  },
+  {
+    q: "Peran model Thomson dalam perkembangan teori atom:",
+    options: [
+      "Model final yang akurat hingga kini",
+      "Langkah awal yang menegaskan elektron dan menginspirasi model berikutnya",
+      "Menjelaskan spektrum garis dengan tepat",
+      "Membuktikan struktur inti atom"
+    ],
+    answer: 1,
+    explain: "Bukan model final, tapi pijakan penting menuju model Rutherford–Bohr dan seterusnya."
+  }
+];
+
+/* ==== Render Soal ==== */
+const questionList = document.getElementById('questionList');
+const progressInfo = document.getElementById('progressInfo');
+const scoreBox = document.getElementById('scoreBox');
+const checkBtn = document.getElementById('checkBtn');
+const resetBtn = document.getElementById('resetBtn');
+
+function renderQuestions(){
+  questionList.innerHTML = "";
+  QUESTIONS.forEach((item, idx)=>{
+    const box = document.createElement('div');
+    box.className = 'q-box';
+    box.dataset.index = idx;
+
+    const q = document.createElement('p');
+    q.className = 'q-text';
+    q.textContent = (idx+1) + ". " + item.q;
+
+    const opts = document.createElement('div');
+    opts.className = 'options';
+
+    item.options.forEach((opt, i)=>{
+      const label = document.createElement('label');
+      label.className = 'option';
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q_'+idx;
+      input.value = i;
+      input.addEventListener('change', updateProgress);
+      label.appendChild(input);
+      label.append(" " + opt);
+      opts.appendChild(label);
+    });
+
+    const fb = document.createElement('div');
+    fb.className = 'feedback';
+    fb.id = 'fb_'+idx;
+
+    box.appendChild(q);
+    box.appendChild(opts);
+    box.appendChild(fb);
+    questionList.appendChild(box);
+  });
+  updateProgress();
+  scoreBox.style.display = 'none';
+}
+function updateProgress(){
+  const total = QUESTIONS.length;
+  const answered = Array.from(document.querySelectorAll('.q-box'))
+    .filter(box => document.querySelector('input[name="q_'+box.dataset.index+'"]:checked'))
+    .length;
+  progressInfo.textContent = answered + "/" + total + " terjawab";
+}
+function checkAnswers(){
+  let correct = 0;
+  QUESTIONS.forEach((item, idx)=>{
+    const chosen = document.querySelector('input[name="q_'+idx+'"]:checked');
+    const fb = document.getElementById('fb_'+idx);
+    if(!chosen){
+      fb.textContent = "Belum dijawab.";
+      fb.className = "feedback no";
+      fb.style.display = 'block';
+      return;
+    }
+    const val = parseInt(chosen.value,10);
+    const benar = item.answer === val;
+    if(benar){ correct++; }
+    fb.innerHTML =
+      (benar ? "Benar! " : "Kurang tepat. ") +
+      "<br><small>Penjelasan: "+ item.explain +"</small>";
+    fb.className = "feedback " + (benar ? "ok":"no");
+    fb.style.display = 'block';
+  });
+  scoreBox.textContent = "Skor: " + correct + "/" + QUESTIONS.length;
+  scoreBox.style.display = 'block';
+}
+function resetQuiz(){
+  document.querySelectorAll('input[type="radio"]').forEach(i=> i.checked = false);
+  document.querySelectorAll('.feedback').forEach(fb => { fb.style.display='none'; fb.textContent=""; });
+  scoreBox.style.display = 'none';
+  updateProgress();
+}
+
+checkBtn.addEventListener('click', checkAnswers);
+resetBtn.addEventListener('click', resetQuiz);
+
+renderQuestions();
+</script>
+</body>
+</html>
