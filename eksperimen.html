@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eksperimen Teori Atom Thomson</title>
+<style>
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0; padding:0;
+    color:#fff;
+    background: linear-gradient(-45deg,#4a90e2,#50e3c2,#9013fe,#f5a623);
+    background-size:400% 400%;
+    animation:gradientBG 15s ease infinite;
+}
+header { text-align:center; padding:30px 20px; }
+header h1 { font-size:2.5em; text-shadow:2px 2px 5px rgba(0,0,0,0.3); }
+.container { display:flex; max-width:1200px; margin:40px auto; padding:20px; gap:30px; align-items: stretch; flex-wrap: wrap; }
+
+/* Menu kiri */
+.menu {
+    flex:1;
+    background: rgba(255,255,255,0.1);
+    border-radius:20px;
+    backdrop-filter: blur(10px);
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    text-align:left;
+}
+.menu h2 { margin-bottom:15px; font-size:1.5em; }
+.menu ul { list-style:none; padding:0; }
+.menu ul li { margin:15px 0; }
+
+/* Garis bawah konsisten */
+.menu ul li a {
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+    padding: 0 5px;
+    display:inline-block;
+    border-bottom:2px solid rgba(255,255,255,0.3);
+    transition:0.3s;
+}
+.menu ul li a:hover { color:#ffd700; border-bottom:2px solid #ffd700; }
+.menu ul li a.active { border-bottom:3px solid #ffd700; color:#ffd700; }
+
+/* Konten kanan */
+.content-right { flex:2; display:flex; flex-direction: column; gap:20px; }
+.photo { width:100%; display:flex; justify-content:center; }
+.photo img { width:100%; max-width:600px; border-radius:20px; box-shadow:0 15px 30px rgba(0,0,0,0.3); object-fit:cover; }
+.text-content { background: rgba(0,0,0,0.4); padding:20px; border-radius:15px; line-height:1.6; }
+
+/* Footer */
+footer { text-align:center; padding:20px; background: rgba(0,0,0,0.5); margin-top:40px; font-size:0.95em; }
+
+@keyframes gradientBG { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+@media(max-width:1024px) { .container { flex-wrap: wrap; } .photo img { max-height:300px; } }
+@media(max-width:480px) { .container { flex-direction: column; } .photo img { max-height:200px; } .menu h2 { font-size:1.2em; } header h1 { font-size:1.6em; } }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Eksperimen Teori Atom Thomson</h1>
+</header>
+
+<div class="container">
+    <div class="menu">
+        <h2>Materi</h2>
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="penemu.html">Penemu</a></li>
+            <li><a href="sejarah.html">Sejarah</a></li>
+            <li><a href="pengertian.html">Pengertian</a></li>
+            <li><a href="kelebihan.html">Kelebihan</a></li>
+            <li><a href="kekurangan.html">Kekurangan</a></li>
+            <li><a href="eksperimen.html" class="active">Eksperimen</a></li>
+            <li><a href="kesimpulan.html">Kesimpulan</a></li>
+        </ul>
+    </div>
+
+    <div class="content-right">
+        <div class="photo">
+            <img src="EKSPERIMEN.png" alt="Eksperimen">
+        </div>
+        <div class="text-content">
+            <h2>Eksperimen</h2>
+            <p>Thomson melakukan eksperimen menggunakan tabung crookes (tabung sinar katoda). Dilansir dari Universe Today, Thomson menemukan bahwa sinar dari tabung katoda dapat dibelokkan oleh medan listrik dan megan magnet.
+
+Hal tersebut menunjukkan keberadaan partikel bermuatan negatif pada sinar katoda yang kemudian dinamai dengan elektron. Dari penemuan inilah, Thomson menyangkal gagasan bahwa atom adalah substansi paling kecil yang tidak dapat dibagi lagi.
+
+Berdasarkan situs Khan Academy, Thomson tahu bahwa atom memiliki muatan netral secara keseluruhan. Sehingga jika ada muatan negatif (elektron), maka atom juga harus memiliki muatan positif untuk menyeimbangkan atom.
+Dari sinilah Thomson menyimpulkan Teori Atom Thomson yang menyebutkan bahwa atom dapat dibagi menjadi muatan positif dan muatan negatif.
+Teori Atom Thomson dinilai kontroversial karena bertentangan dengan Dalton, namun perlahan bisa diterima dan dikenal sebagai model pudding prem</p>
+            <p></p>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2025 Presentasi Teori Atom
+</footer>
+
+</body>
+</html>

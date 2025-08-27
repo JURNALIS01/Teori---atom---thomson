@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beranda Teori Atom Thomson</title>
+<style>
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0; padding:0;
+    color:#fff;
+    background: linear-gradient(-45deg,#4a90e2,#50e3c2,#9013fe,#f5a623);
+    background-size:400% 400%;
+    animation:gradientBG 15s ease infinite;
+}
+header {
+    text-align:center;
+    padding:30px 20px;
+}
+header h1 {
+    font-size:2.5em;
+    text-shadow:2px 2px 5px rgba(0,0,0,0.3);
+}
+.container {
+    display:flex;
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
+    gap:30px;
+    align-items: stretch;
+    flex-wrap: nowrap;
+}
+/* Menu kiri */
+.menu {
+    flex:1;
+    background: rgba(255,255,255,0.1);
+    border-radius:20px;
+    backdrop-filter: blur(10px);
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    text-align:left;
+}
+.menu h2 {
+    margin-bottom:15px;
+    font-size:1.5em;
+}
+.menu ul { list-style:none; padding:0; }
+.menu ul li { margin:15px 0; }
+.menu ul li a {
+    color:#fff; 
+    text-decoration:none; 
+    font-weight:bold; 
+    padding-bottom:2px;
+    border-bottom: 2px solid rgba(255,255,255,0.3); /* semua menu ada garis bawah */
+    transition:0.3s;
+}
+.menu ul li a:hover { color:#ffd700; text-decoration:underline; }
+/* Gambar kanan */
+.photo {
+    flex:2;
+    display:flex;
+    justify-content:center;
+}
+.photo img {
+    height:100%;
+    width:auto;
+    max-width:100%;
+    border-radius:20px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.3);
+    object-fit:cover;
+    transition: transform 0.5s;
+}
+.photo img:hover { transform: scale(1.05); }
+
+footer {
+    text-align:center;
+    padding:20px;
+    background: rgba(0,0,0,0.5);
+    margin-top:40px;
+    font-size:0.95em;
+}
+
+@keyframes gradientBG {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Responsif */
+@media(max-width:1024px) {
+    .container { flex-wrap: wrap; gap:20px; }
+    .photo img { max-height:300px; width:auto; }
+}
+@media(max-width:480px) {
+    .photo img { max-height:200px; width:auto; }
+    .menu h2 { font-size:1.2em; }
+    header h1 { font-size:1.6em; }
+}
+</style>
+</head>
+<body>
+<header>
+    <h1>Teori Atom Thomson</h1>
+</header>
+
+<div class="container">
+    <!-- Menu kiri -->
+    <div class="menu">
+        <h2>Materi</h2>
+        <ul>
+            <li><a href="penemu.html">Penemu</a></li>
+            <li><a href="sejarah.html">Sejarah</a></li>
+            <li><a href="pengertian.html">Pengertian</a></li>
+            <li><a href="kelebihan.html">Kelebihan</a></li>
+            <li><a href="kekurangan.html">Kekurangan</a></li>
+            <li><a href="eksperimen.html">Eksperimen</a></li>
+            <li><a href="kesimpulan.html">Kesimpulan</a></li>
+        </ul>
+    </div>
+
+    <!-- Gambar kanan -->
+    <div class="photo">
+        <img src="ATOM.png" alt="Model Atom Thomson">
+    </div>
+</div>
+
+<footer>
+    © 2025 Presentasi Teori Atom
+</footer>
+</body>
+</html>
